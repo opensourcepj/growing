@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+{% block body %}
+<ul class="media-list">
+  {% for output_item in output_list %}
+  <li class="media">
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+    <div class="media-left">
+      <a href="#">
+        <img class="media-object" src="{{ output_item.img }}" height="42" width="42" alt="...">
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">{{ output_item.vegetable }} <small> <em>Grown on: Jan 1st 2017 - {{output_item.size}}m squared </em></small></h4>
+
+
+      <div class="row">
+            <div class="col-md-6">
+          {{output_item.growing_percentage}}% through {{output_item.growing_estimate}} days growing
+
+
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{output_item.growing_percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{output_item.growing_percentage}}%;">
+            </div>
+          </div>
+        </div>
+            <div class="col-md-6">
+          {{output_item.hours_percentage}}% through {{output_item.hours_estimate}} hours
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{output_item.hours_percentage}}" aria-valuemin="0" aria-valuemax="100" style="width: {{output_item.hours_percentage}}%;">
+
+            </div>
+          </div>
+        </div>
+      </div>
+          <div class="row">
+                <div class="col-md-6">
+                <span class="glyphicon glyphicon-grain" aria-hidden="true"></span> {{output_item.output_estimate}}kg
+                <br><span class="glyphicon glyphicon-eur" aria-hidden="true"></span> EUR {{output_item.value_estimate}}
+                <br><span class="glyphicon glyphicon-tasks" aria-hidden="true"></span> next task:{{output_item.next_task}}
+                </div>
+                <div class="col-md-6">
+                  <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> {{output_item.other_growers_area}} nearby
+                  <br><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{output_item.other_growers_connections}} connections
+                  <br><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> {{output_item.number_of_comments}} comments <span class="badge">1 new</span>
+                </div>
+          </div>
+
+
+      </br>
+      <button type="button" class="btn btn-default btn-block">
+        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Update Tasks
+      </button>
+      <button type="button" class="btn btn-default btn-block">
+        <span class="glyphicon glyphicon-share" aria-hidden="true"></span> Share
+      </button>
+
+
+  </div>
+</div>
+</div>
+</li>
+
+  {% endfor %}
+
+{% endblock %}
